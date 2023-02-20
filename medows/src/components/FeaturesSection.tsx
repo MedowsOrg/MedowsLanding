@@ -90,7 +90,7 @@ import Request from "@/assets/Request.png"
             <div className="relative mr-6 prose">
               <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">For Clinicians</h3>
               <p className="mt-3 text-lg text-gray-500">
-                Medows is designed to make your life easier. We've created, battle-tested and refined a myriad of features to take away any pain points care home support inherently has, letting you to get on with your work as easily as possible. Here are just a few of the features we've built for you:
+                Medows is designed to make your life easier. We&apos;ve created, battle-tested and refined a myriad of features to take away any pain points care home support inherently has, letting you to get on with your work as easily as possible. Here are just a few of the features we&apos;ve built for you:
               </p>
   
               <dl className="mt-10 space-y-10">
@@ -169,7 +169,7 @@ import Request from "@/assets/Request.png"
               <div className="lg:col-start-2 ml-6 prose">
                 <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">For Carers</h3>
                 <p className="mt-3 text-lg text-gray-500">
-                    Medows is much more than just a tool for your care home. We've built a platform that is designed to make your job easier, and to help you do your job better. Here are just a few of the features we've built for you:
+                    Medows is much more than just a tool for your care home. We&apos;ve built a platform that is designed to make your job easier, and to help you do your job better. Here are just a few of the features we&apos;ve built for you:
                 </p>
   
                 <dl className="mt-10 space-y-10">

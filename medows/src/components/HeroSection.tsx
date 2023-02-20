@@ -1,8 +1,8 @@
 import AnimateOnScroll from '@/hooks/AnimateOnScroll';
 import { ChevronRightIcon, StarIcon, HeartIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
-import HomeScreenshot from 'src/assets/HomeScreenshot.png'
-import LogoWithName from 'src/assets/logo-with-name.svg'
+import HomeScreenshot from '@/assets/HomeScreenshot.png'
+import LogoWithName from '@/assets/logo-with-name.svg'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
@@ -93,17 +93,17 @@ const HeroSection = () => {
                         </div>
                         <div className="relative -mr-40 pl-6 sm:mx-auto sm:max-w-3xl sm:px-0 lg:h-full lg:max-w-none lg:pl-12">
 
-                            <div className="relative -mr-40 pl-6 sm:mx-auto sm:max-w-3xl sm:px-0 lg:h-full lg:max-w-none lg:pl-12">
+                            <div className="relative -mr-40 pl-6 max-w-7xl  sm:mx-auto sm:max-w-3xl sm:px-0 lg:h-full lg:max-w-none lg:pl-12">
                                 <AnimateOnScroll right>
                                     <Image
-                                        width={720}
-                                        height={488}
-                                        className="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none"
+                                        className="rounded-md  shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto "
                                         src={HomeScreenshot}
-                                        alt=""
+                                        alt="Home Screenshot"
                                     />
+                                    
                                 </AnimateOnScroll>
                             </div>
+                            
 
                         </div>
                     </div>

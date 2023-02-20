@@ -23,7 +23,7 @@ function classNames(...classes: string[]) {
 function SelectBox({ setSelected, selected, list, title, name }: Props) {
 
   return (
-    <Listbox value={selected} onChange={setSelected} name={name}>
+    <Listbox value={selected} onChange={() => setSelected} name={name}>
       {({ open }) => (
         <>
           <Listbox.Label className="block text-sm font-medium text-gray-700">{title}</Listbox.Label>
