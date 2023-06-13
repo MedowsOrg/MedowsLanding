@@ -4,7 +4,7 @@ import Josh from '@/assets/team/josh.jpg'
 import AnimateOnScroll from '@/hooks/AnimateOnScroll'
 import Image from 'next/image'
 import Link from 'next/link'
-import LinkedIn from '@/assets/linkedIn.svg'
+import LinkedIn from '@/assets/linkedin.svg'
 import Balancer from 'react-wrap-balancer'
 
 const people = [

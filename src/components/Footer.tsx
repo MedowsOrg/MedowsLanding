@@ -1,7 +1,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import CE from "@/assets/footer/CE.png"
+import CE from "@/assets/footer/ce.png"
 import digital from "@/assets/footer/digital.jpeg"
 import hinm from "@/assets/footer/hinm.png"
 
@@ -9,8 +9,8 @@ import hinm from "@/assets/footer/hinm.png"
 const Footer = () => {
     return (
         <footer className="mt-24 bg-gray-900 sm:mt-12">
-            <div className="mx-auto max-w-md overflow-hidden py-12 px-6 sm:max-w-3xl lg:max-w-7xl lg:px-8 prose">
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 place-items-center text-center text-gray-400">
+            <div className="max-w-md px-6 py-12 mx-auto overflow-hidden prose sm:max-w-3xl lg:max-w-7xl lg:px-8">
+                <div className="grid grid-cols-1 gap-8 text-center text-gray-400 sm:grid-cols-2 place-items-center">
                     <div className=''>
                         <div className="">
                             Medows Ltd
@@ -31,7 +31,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 place-items-center mt-4">
+                <div className="grid grid-cols-1 mt-4 sm:grid-cols-3 place-items-center">
                     <Link href="/files/cyberessentials.pdf">
                         <Image src={CE} width={75} height={50} alt="Cyber Essentials" />
                     </Link>
@@ -44,10 +44,10 @@ const Footer = () => {
 
 
                 </div>
-                <div className="mt-8 flex justify-center space-x-6">
+                <div className="flex justify-center mt-8 space-x-6">
 
                 </div>
-                <p className="mt-8 text-center text-base text-gray-400">
+                <p className="mt-8 text-base text-center text-gray-400">
                     &copy; {new Date().getFullYear()} Medows Ltd. All rights reserved.
                 </p>
             </div>
