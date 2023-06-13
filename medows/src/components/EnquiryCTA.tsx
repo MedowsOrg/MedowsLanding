@@ -1,6 +1,6 @@
-
+"use client"
 import React, { useState } from 'react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 const EnquiryCTA = () => {
 
@@ -10,7 +10,7 @@ const EnquiryCTA = () => {
       const router = useRouter()
       const handleSubmit = (e: React.FormEvent<EventTarget>) => {
           e.preventDefault()
-          router.push({ pathname: '/enquire', query: { email: email } })
+          router.push( `/enquire?email=${email}`)
       }
 
 
@@ -18,7 +18,7 @@ const EnquiryCTA = () => {
         <div className="relative mt-24 sm:mt-32 sm:py-16">
         <div aria-hidden="true" className="hidden sm:block">
           <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-gray-50" />
-          <svg className="absolute top-8 left-1/2 -ml-3" width={404} height={392} fill="none" viewBox="0 0 404 392">
+          <svg className="absolute -ml-3 top-8 left-1/2" width={404} height={392} fill="none" viewBox="0 0 404 392">
             <defs>
               <pattern
                 id="8228f071-bcee-4ec8-905a-2a059a2cc4fb"
@@ -34,11 +34,11 @@ const EnquiryCTA = () => {
             <rect width={404} height={392} fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)" />
           </svg>
         </div>
-        <div className="mx-auto max-w-md px-6 sm:max-w-3xl lg:max-w-7xl lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl bg-rose-500 px-6 py-10 shadow-xl sm:px-12 sm:py-20">
+        <div className="max-w-md px-6 mx-auto sm:max-w-3xl lg:max-w-7xl lg:px-8">
+          <div className="relative px-6 py-10 overflow-hidden shadow-xl rounded-2xl bg-rose-500 sm:px-12 sm:py-20">
             <div aria-hidden="true" className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
               <svg
-                className="absolute inset-0 h-full w-full"
+                className="absolute inset-0 w-full h-full"
                 preserveAspectRatio="xMidYMid slice"
                 fill="none"
                 viewBox="0 0 1463 360"
@@ -60,19 +60,19 @@ const EnquiryCTA = () => {
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Level Up Your Care Homes
                 </h2>
-                <p className="mx-auto mt-6 max-w-2xl text-lg text-rose-100">
-                Get in touch to find out how Medows can help with your Care Home support.
+                <p className="max-w-2xl mx-auto mt-6 text-lg text-rose-100">
+                Get in touch to find out how Medows can help deliver your best work.
                 </p>
               </div>
               <form action="#" className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
-                <div className="min-w-0 flex-1">
+                <div className="flex-1 min-w-0">
                   <label htmlFor="cta-email" className="sr-only">
                     Email address
                   </label>
                   <input
                     id="cta-email"
                     type="email"
-                    className="block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500"
+                    className="block w-full px-5 py-3 text-base text-gray-900 placeholder-gray-500 border border-transparent rounded-md shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500"
                     placeholder="Enter your email"
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -80,7 +80,7 @@ const EnquiryCTA = () => {
                 <div className="mt-4 sm:mt-0 sm:ml-3">
                   <button
                     onClick={handleSubmit}
-                    className="block w-full rounded-md border border-transparent bg-gray-900 px-5 py-3 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
+                    className="block w-full px-5 py-3 text-base font-medium text-white bg-gray-900 border border-transparent rounded-md shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
                   >
                     Enquire
                   </button>

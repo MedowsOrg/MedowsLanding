@@ -1,65 +1,70 @@
-"use client" 
 
-import { useEffect, useState} from 'react'
-import SelectBox from '@/components/SelectBox'
-import { useParams, useRouter, useSearchParams } from 'next/navigation'
+import { redirect } from 'next/navigation'
 
 
-const organizationType = [
-    { id: 1, name: 'Integrated Care System' },
-    { id: 2, name: 'Primary Care Network' },
-    { id: 3, name: 'Individual Practice' },
-    { id: 4, name: 'Care Home' },
-    { id: 5, name: 'Other' },
-]
+const PricingForm = () => {
+
+    // const [formState, setFormState] = useState("")
+    // const [name, setName] = useState("")
+    // const [email, setEmail] = useState("")
+    // const [tier, setTier] = useState("");
+    // const [selected, setSelected] = useState(organizationType[0])
+    // const [additional, setAdditional] = useState("")
 
 
-const EnquiryFrom = () => {
+    // useEffect(() => {
+    //      if (tierParam) {
+    //          console.log("Tier: ", tierParam)
+    //          setEmail(tierParam as string)
+    //      }
+    // }, [tierParam])
 
-    const [formState, setFormState] = useState("")
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [selected, setSelected] = useState(organizationType[0])
-    const [additional, setAdditional] = useState("")
+    // const handleFormSubmit = (e: React.FormEvent<EventTarget>) => {
+    //     e.preventDefault();
 
-    const router = useRouter();
-    const searchParams =  useSearchParams();
-    const emailParam = searchParams?.get("email");
+    //     fetch('https://formspree.io/f/moqzzgql', {
+    //       method: 'POST',
+    //       body: JSON.stringify({
+    //         Name: name,
+    //         Email: email,
+    //         Position: selected.name,
+    //         Additional: additional,
+    //       }),
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //     })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log('Success:', data);
+    //       router.push("/pricing/success?name=" + name)
+    //     }
+    //   )
+    //   .catch((error) => {
+    //     console.error('Error:', error);
+    //     return <p>Sorry, there was an error submitting your enquiry. Please try again later.</p>;
+    //   });
+    // }
 
+  async function SubmitPricingEnquiry({ name, email, tier, additional }: { name: string, email: string, tier: string, additional: string }) {
+    "use server";
 
-    useEffect(() => {
-         if (emailParam) {
-             console.log(emailParam)
-             setEmail(emailParam as string)
-         }
-    }, [emailParam])
-
-    const handleFormSubmit = (e: React.FormEvent<EventTarget>) => {
-        e.preventDefault();
-
-        fetch('https://formspree.io/f/xqkwnobr', {
-          method: 'POST',
-          body: JSON.stringify({
-            Name: name,
-            Email: email,
-            Position: selected.name,
-            Additional: additional,
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('Success:', data);
-          router.push("/enquirySuccess?name=" + name)
-        }
-      )
-      .catch((error) => {
-        console.error('Error:', error);
-        return <p>Sorry, there was an error submitting your enquiry. Please try again later.</p>;
-      });
-    }
+    const res = await fetch('https://formspree.io/f/moqzzgql', {
+      method: 'POST',
+      body: JSON.stringify({
+        Name: name,
+        Email: email,
+        Position: tier,
+        Additional: additional,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    const data = await res.json()
+    console.log(data)
+    redirect("/pricing/success?name=" + name)
+  }
 
   return (
     <div className="px-6 py-16 overflow-hidden lg:px-8 lg:py-24">
@@ -109,13 +114,13 @@ const EnquiryFrom = () => {
           <rect width={404} height={404} fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)" />
         </svg>
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact sales</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact our sales team</h2>
           <p className="mt-4 text-lg leading-6 text-gray-500">
-            Let us know your contact details and a member of the team will be in touch to discuss how Medows could help you.
+            Boost your productivity from day one with Medows
           </p>
         </div>
         <div className="mt-12">
-          <form onSubmit={handleFormSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+          <form  className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
            
             <div className="sm:col-span-2">
               <label htmlFor="ContactName" className="block text-sm font-medium text-gray-700">
@@ -128,12 +133,14 @@ const EnquiryFrom = () => {
                   id="name"
                   autoComplete="name"
                   className="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:border-rose-500 focus:ring-rose-500"
-                  onChange={(e) => setName(e.target.value)}
+                 
                 />
               </div>
             </div>
             <div className="sm:col-span-2">
-              <SelectBox list={organizationType} setSelected={setSelected} selected={selected} title="Organisation Type" name="Position"/>
+              <select>
+                
+              </select>
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
@@ -146,8 +153,6 @@ const EnquiryFrom = () => {
                   type="Email"
                   autoComplete="email"
                   className="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:border-rose-500 focus:ring-rose-500"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -163,7 +168,7 @@ const EnquiryFrom = () => {
                   rows={4}
                   className="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:border-rose-500 focus:ring-rose-500"
                   defaultValue={''}
-                  onChange={(e) => setAdditional(e.target.value)}
+                 
                 />
               </div>
             </div>
@@ -183,4 +188,4 @@ const EnquiryFrom = () => {
   )
 }
 
-export default EnquiryFrom
+export default PricingForm

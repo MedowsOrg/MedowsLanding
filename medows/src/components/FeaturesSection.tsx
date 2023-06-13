@@ -3,12 +3,14 @@ import {
     ChatBubbleBottomCenterTextIcon,
     QueueListIcon,
     CursorArrowRaysIcon,
-    DevicePhoneMobileIcon
+    DevicePhoneMobileIcon,
+    ClockIcon
   } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import FullList from '@/assets/FullList.png'
 import AnimateOnScroll from '@/hooks/AnimateOnScroll'
 import Request from "@/assets/Request.png"
+import { Balancer } from 'react-wrap-balancer'
   
   const clinicianFeatures = [
     {
@@ -22,14 +24,13 @@ import Request from "@/assets/Request.png"
       id: 2,
       name: 'Speed up your workflow',
       description:
-        'At Medows, we believe that technology should make your life easier. Our intuitive design promotes care home staff to provide as much detail as necessary, while clinicians can easily set tasks and follow up. Every care has been taken to make sure Medows is as simple as possible, so you can focus on what matters most: your patients.',
+        'At Medows, we believe that technology should make your life easier. Our intuitive design promotes care home staff to provide as much detail as necessary, while clinicians can easily dictate notes straight to text, set tasks and follow up.  Make confident decisions, so you can focus on what matters most.',
       icon: BoltIcon,
     },
     {
       id: 3,
-      name: 'One-Click import to Patient Records',
-      description:
-        "Medows is designed to make your life easier. That's why we've made it as simple as possible to import requests and tasks into your patient records. Just one click and you're done.",
+      name: 'Seamless import to Patient Records',
+      description: "Medows was built and tested by clinicians and GPs. That's why we've made it as simple as possible to transfer information into your patient records.",
       icon: CursorArrowRaysIcon,
     },
   ]
@@ -37,25 +38,30 @@ import Request from "@/assets/Request.png"
     {
       id: 1,
       name: 'Help is at hand',
-      description:
-        'Medows makes it easy for care home staff to request help from clinicians. Just a few clicks and you can send a request to your GP, or any other clinician you work with.',
+      description: 'Medows makes it easy for care home staff to request help from clinicians. Just a few clicks and you can send a request to the GP.',
       icon: ChatBubbleBottomCenterTextIcon,
     },
     {
       id: 2,
       name: 'Work on the go',
       description:
-        'Available on mobile and tablet, Medows makes it easy to request help on the go. No more waiting until you get back to the office to send a request. Fire it off from the patients bed side, giving you the time you need to focus on your patients.',
+        'Available on mobile and tablet, Medows makes it easy to request help on the go, giving you the time you need to focus on your residents.',
       icon: DevicePhoneMobileIcon,
     },
+    {
+      id: 3,
+      name: 'When it matters',
+      description: 'Have instant access to important documents and management plans from the GP so you can ensure your residents get the best care, with no delays.',
+      icon: ClockIcon,
+    }
   ]
   
   const FeaturesSection = () => {
     return (
-      <div className="overflow-hidden  py-16 lg:py-24">
-        <div className="relative mx-auto max-w-xl px-6 lg:max-w-screen-2xl lg:px-8">
+      <div className="py-16 overflow-hidden lg:py-24">
+        <div className="relative max-w-xl px-6 mx-auto lg:max-w-screen-2xl lg:px-8">
           <svg
-            className="absolute left-full hidden -translate-x-1/2 -translate-y-1/4 transform lg:block"
+            className="absolute hidden transform -translate-x-1/2 left-full -translate-y-1/4 lg:block"
             width={404}
             height={784}
             fill="none"
@@ -78,39 +84,39 @@ import Request from "@/assets/Request.png"
           </svg>
   
           <div className="relative">
-            <h2 className="text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
                 Medows is designed for you
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-center text-xl text-gray-500">
+            <p className="max-w-3xl mx-auto mt-4 text-xl text-center text-gray-500">
               Here is just a few ways Medows can save you time, money and stress.
             </p>
           </div>
   
           <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8">
-            <div className="relative mr-6 prose">
+            <div className="relative mr-6">
               <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">For Clinicians</h3>
-              <p className="mt-3 text-lg text-gray-500">
-                Medows is designed to make your life easier. We&apos;ve created, battle-tested and refined a myriad of features to take away any pain points care home support inherently has, letting you to get on with your work as easily as possible. Here are just a few of the features we&apos;ve built for you:
+              <p className="mt-3 mb-10 text-lg leading-8 text-gray-500">
+              Medows is designed to make your life easier. We&apos;ve created, battle-tested and refined a myriad of features to take away any inefficiencies care home support has, letting you to get on with your work as easily as possible. Here are just a few of the features we think you&apos;ll like:
               </p>
   
               <dl className="mt-10 space-y-10">
                 {clinicianFeatures.map((item) => (
                   <div key={item.id} className="relative">
                     <dt>
-                      <div className="absolute flex h-12 w-12 items-center justify-center rounded-xl bg-rose-500 text-white">
-                        <item.icon className="h-8 w-8" aria-hidden="true" />
+                      <div className="absolute flex items-center justify-center w-12 h-12 text-white rounded-xl bg-rose-500">
+                        <item.icon className="w-8 h-8" aria-hidden="true" />
                       </div>
-                      <p className="ml-16 text-lg font-medium leading-6 text-gray-900">{item.name}</p>
+                      <p className="ml-16 text-lg font-medium leading-6 text-gray-900"><Balancer>{item.name}</Balancer></p>
                     </dt>
-                    <dd className="mt-2 ml-16 text-base text-gray-500">{item.description}</dd>
+                    <dd className="ml-16 text-base leading-8 text-gray-500"><Balancer>{item.description}</Balancer></dd>
                   </div>
                 ))}
               </dl>
             </div>
   
-            <div className="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
+            <div className="relative mt-10 -mx-4 lg:mt-0" aria-hidden="true">
               <svg
-                className="absolute left-1/2 -translate-x-1/2 translate-y-16 transform lg:hidden"
+                className="absolute transform -translate-x-1/2 translate-y-16 left-1/2 lg:hidden"
                 width={784}
                 height={404}
                 fill="none"
@@ -142,7 +148,7 @@ import Request from "@/assets/Request.png"
           </div>
   
           <svg
-            className="absolute right-full hidden translate-x-1/2 translate-y-12 transform lg:block"
+            className="absolute hidden transform translate-x-1/2 translate-y-12 right-full lg:block"
             width={404}
             height={784}
             fill="none"
@@ -166,30 +172,31 @@ import Request from "@/assets/Request.png"
   
           <div className="relative mt-12 sm:mt-16 lg:mt-64">
             <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-8">
-              <div className="lg:col-start-2 ml-6 prose">
+              <div className="ml-6 lg:col-start-2">
                 <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">For Carers</h3>
                 <p className="mt-3 text-lg text-gray-500">
-                    Medows is much more than just a tool for your care home. We&apos;ve built a platform that is designed to make your job easier, and to help you do your job better. Here are just a few of the features we&apos;ve built for you:
+                Medows is much more than just a tool for your care home. We&apos;ve built a platform that is designed to make your job easier, and to empower you. Here are just a few of the benefits for you:
                 </p>
   
                 <dl className="mt-10 space-y-10">
                   {carerFeatures.map((item) => (
                     <div key={item.id} className="relative">
                       <dt>
-                        <div className="absolute flex h-12 w-12 items-center justify-center rounded-xl bg-rose-500 text-white">
-                          <item.icon className="h-8 w-8" aria-hidden="true" />
+                        <div className="absolute flex items-center justify-center w-12 h-12 text-white rounded-xl bg-rose-500">
+                          <item.icon className="w-8 h-8" aria-hidden="true" />
                         </div>
-                        <p className="ml-16 text-lg font-medium leading-6 text-gray-900">{item.name}</p>
+                        <p className="ml-16 text-lg font-medium leading-6 text-gray-900"><Balancer>{item.name}</Balancer></p>
+                        <p className="ml-16 text-base leading-8 text-gray-500 "><Balancer>{item.description}</Balancer></p>
                       </dt>
-                      <dd className="mt-2 ml-16 text-base text-gray-500">{item.description}</dd>
+                      
                     </div>
                   ))}
                 </dl>
               </div>
   
-              <div className="relative -mx-4 mt-10 lg:col-start-1 lg:mt-0">
+              <div className="relative mt-10 -mx-4 lg:col-start-1 lg:mt-0">
                 <svg
-                  className="absolute left-1/2 -translate-x-1/2 translate-y-16 transform lg:hidden"
+                  className="absolute transform -translate-x-1/2 translate-y-16 left-1/2 lg:hidden"
                   width={784}
                   height={404}
                   fill="none"
