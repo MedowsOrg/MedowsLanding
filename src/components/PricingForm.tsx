@@ -47,7 +47,6 @@ const PricingForm = () => {
     // }
 
   async function SubmitPricingEnquiry({ name, email, tier, additional }: { name: string, email: string, tier: string, additional: string }) {
-    "use server";
 
     const res = await fetch('https://formspree.io/f/moqzzgql', {
       method: 'POST',
