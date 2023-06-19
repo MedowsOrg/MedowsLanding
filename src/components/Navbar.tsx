@@ -11,10 +11,10 @@ const navLinks = [
         name: 'Home',
         href: '/',
     },
-    {
-        name: 'About',
-        href: '/about',
-    },
+    // {
+    //     name: 'About',
+    //     href: '/about',
+    // },
     {
         name: 'What is Medows?',
         href: '/whatis',

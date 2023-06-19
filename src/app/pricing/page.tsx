@@ -34,7 +34,6 @@ export default function Pricing() {
     <div className="py-24 sm:py-32">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="flex flex-col justify-center mx-auto sm:text-center">
-          <h2 className="text-base font-semibold leading-7 text-rose-500 ">Pricing</h2>
           <div className="mt-2 text-xl font-bold text-gray-900 sm:text-5xl">
             <p className='leading-tight tracking-tight'>Start a free trial,</p>
             <p className='leading-tight tracking-tight'>make a difference,</p>

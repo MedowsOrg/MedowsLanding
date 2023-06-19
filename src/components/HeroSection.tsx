@@ -37,7 +37,7 @@ const HeroSection = () => {
                             </div>
                             <form action="#" className="mt-12 sm:flex sm:w-full sm:max-w-lg">
                                 <div className="min-w-0">
-                                   <Link href="/about">
+                                   <Link href="/whatis">
                                         <Button>About</Button>
                                    </Link>
                                 </div>

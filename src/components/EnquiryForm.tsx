@@ -6,7 +6,7 @@ import { useParams, useRouter, useSearchParams } from 'next/navigation'
 
 
 const organizationType = [
-    { id: 1, name: 'Integrated Care System' },
+    { id: 1, name: 'Integrated Care System'},
     { id: 2, name: 'Primary Care Network' },
     { id: 3, name: 'Individual Practice' },
     { id: 4, name: 'Care Home' },
@@ -52,7 +52,7 @@ const EnquiryFrom = () => {
         .then((response) => response.json())
         .then((data) => {
           console.log('Success:', data);
-          router.push("/enquirySuccess?name=" + name)
+          router.push("/enquire/success?name=" + name)
         }
       )
       .catch((error) => {
